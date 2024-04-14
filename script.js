@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const questions = [
             {
                 question: "Which language runs in a web browser?",
@@ -35,6 +34,9 @@ const questions = [
         ];
 
         let currentQuestion = 0;
+        const quizContainer = document.getElementById('quiz');
+        const questionContainer = document.getElementById('question-container');
+        const resultContainer = document.getElementById('result-container');
         const questionElement = document.getElementById('question');
         const submitButton = document.getElementById('submit');
         const form = document.getElementById('quiz-form');
@@ -51,8 +53,9 @@ const questions = [
 
         function showResult() {
             const score = calculateScore();
-            alert(`Your Score: ${score}/${questions.length}`);
-            location.reload(); // Reload the page
+            document.getElementById('result').textContent = `Your Score: ${score}/${questions.length}`;
+            resultContainer.style.display = 'block';
+            questionContainer.style.display = 'none';
         }
 
         function calculateScore() {
@@ -73,6 +76,14 @@ const questions = [
             } else {
                 showResult();
             }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            answeredQuestions = 0;
+            loadQuestion();
+            resultContainer.style.display = 'none';
+            questionContainer.style.display = 'block';
         }
 
         submitButton.addEventListener('click', function() {
