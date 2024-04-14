@@ -1,11 +1,9 @@
-          .quiz-container {
+/*  your css code here. If applicable */
+.quiz-container {
             margin: 50px auto;
             width: 80%;
             max-width: 600px;
             text-align: center;
-        }
-        #question-container, #result-container {
-            display: none;
         }
         #question {
             font-size: 24px;
